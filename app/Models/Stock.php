@@ -12,3 +12,4 @@ class Stock extends Model
         return $this->belongsTo(Product::class);
     }
 }
+// add comment to this file in registation branch
