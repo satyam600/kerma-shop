@@ -13,3 +13,4 @@ class Stock extends Model
     }
 }
 // add comment to this file in registation branch
+// aaa
