@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KarmaController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::get('single-product', [KarmaController::class, 'single_product']);
 Route::get('tracking', [KarmaController::class, 'tracking']);
 
 Route::get('data', [KarmaController::class, 'data']);
+
+//Registration 
+Route::get('registration', [RegistrationController::class, 'registration']);
+Route::post('registration', [RegistrationController::class, 'registeredUser']);
