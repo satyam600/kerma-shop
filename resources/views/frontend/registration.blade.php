@@ -40,51 +40,96 @@
 						<form class="row login_form" action="registration" method="post" id="contactForm" novalidate="novalidate">
                             @csrf
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+								<input type="text" class="form-control" id="name" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" value="{{old('username')}}">
+								<span style="color:red">@error('username')
+									{{$message}}
+								@enderror</span>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<span style="color:red">@error('password')
+									{{$message}}
+								@enderror</span>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="conformpassword" placeholder="Conform Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Conform Password'">
+								<input type="password" class="form-control" id="name" name="password_confirmation" placeholder="Conform Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Conform Password'">
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="fname" placeholder="Fist Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fist Name'">
+								<input type="text" class="form-control" id="name" name="fname" placeholder="Fist Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fist Name'" value="{{old('fname')}}">
+								<span style="color:red">@error('fname')
+									{{$message}}
+								@enderror</span>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="lname" placeholder="Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'">
+								<input type="text" class="form-control" id="name" name="lname" placeholder="Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" value="{{old('lname')}}">
+								<span style="color:red">@error('lname')
+									{{$message}}
+								@enderror</span>
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
-									<input type="radio" id="f-option2" name="gender">
+									<input type="radio" id="f-option2" name="gender_id" value=1>
 									<label for="f-option2">Male </label>
-                                    <input type="radio" id="f-option2" name="gender">
+                                    <input type="radio" id="f-option2" name="gender_id" value=2>
 									<label for="f-option2">Female </label>
-                                    <input type="radio" id="f-option2" name="gender">
+                                    <input type="radio" id="f-option2" name="gender_id" value=3>
 									<label for="f-option2">Other </label>
+									<span style="color:red">@error('gender_id')
+									{{$message}}
+								@enderror</span>
 								</div>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="phone" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'">
+								<input type="text" class="form-control" id="name" name="phone" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" value="{{old('phone')}}">
+								<span style="color:red">@error('phone')
+									{{$message}}
+								@enderror</span>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+								<input type="text" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" value="{{old('email')}}">
+								<span style="color:red">@error('email')
+									{{$message}}
+								@enderror</span>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
+								<input type="text" class="form-control" id="name" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" value="{{old('address')}}">
+								<span style="color:red">@error('address')
+									{{$message}}
+								@enderror</span>
 							</div>
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="state" placeholder="State" onfocus="this.placeholder = ''" onblur="this.placeholder = 'State'">
+								<input type="text" class="form-control" id="name" name="state" placeholder="State" onfocus="this.placeholder = ''" onblur="this.placeholder = 'State'" value="{{old('state')}}">
+								<span style="color:red">@error('state')
+									{{$message}}
+								@enderror</span>
 							</div>
+
                             <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="terms" placeholder="Terms" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Terms'">
+								<input type="text" class="form-control" id="name" name="status" placeholder="Status" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Status'" value="{{old('status')}}">
+								<span style="color:red">@error('status')
+									{{$message}}
+								@enderror</span>
 							</div>
-                            <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="newsletters" placeholder="Newsletters" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Newsletters'">
+
+							<div class="col-md-12 form-group">
+								<div class="creat_account">
+									<input type="checkbox" id="f-option2" name="terms" value="Yes">
+									<label for="f-option2">Accept Terms</label>
+								</div>
 							</div>
-                            <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="promotion" placeholder="Promotion" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Promotion'">
+							<div class="col-md-12 form-group">
+								<div class="creat_account">
+									<input type="checkbox" id="f-option2" name="newsletters" value="Yes">
+									<label for="f-option2">Want to recive our newsletters</label>
+								</div>
 							</div>
+							<div class="col-md-12 form-group">
+								<div class="creat_account">
+									<input type="checkbox" id="f-option2" name="terms" value="Yes">
+									<label for="f-option2">Hear more about our products</label>
+								</div>
+							</div>
+
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">Register</button>
 							</div>
