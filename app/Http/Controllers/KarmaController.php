@@ -31,9 +31,6 @@ class KarmaController extends Controller
     function index() {
         return view('frontend.index');
     }
-    function login() {
-        return view('frontend.login');
-    }
     function single_blog() {
         return view('frontend.single-blog');
     }
