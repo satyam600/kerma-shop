@@ -40,16 +40,14 @@
 						<form class="row login_form" action="login" method="post" id="contactForm" novalidate="novalidate">
 							@csrf
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" value="{{old('username')}}">
-								<span style="color:red">@error('username')
+								<input type="text" class="form-control" id="name" name="user_name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" value="{{old('username')}}">
+								<span style="color:red">@error('user_name')
 									{{$message}}
 								@enderror</span>
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" value="{{old('password')}}">
-								span style="color:red">@error('password')
-									{{$message}}
-								@enderror</span>
+								
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">

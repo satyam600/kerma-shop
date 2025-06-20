@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Userr;
+use Illuminate\Support\Facades\Hash;
 
 class RegistrationController extends Controller
 {
@@ -11,6 +12,12 @@ class RegistrationController extends Controller
         return view('frontend.registration');
     }
     function registeredUser(Request $request) {
+        // echo "<pre>";
+        // $hashpassword=Hash::make($request->password);
+        // return $hashpassword;
+        // print_r($request->all());
+        // die();
+
         $request->validate([
             'username'=>'required | min:3 | max:20',
             'password'=>'required | regex:/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#@$%]).+$/ | confirmed',
@@ -28,7 +35,8 @@ class RegistrationController extends Controller
         ]);
         $user=new Userr();
         $user->user_name=$request->username;
-        $user->f_name=$request->password;
+        $hashpassword=Hash::make($request->password);
+        $user->password=$hashpassword;
         $user->f_name=$request->fname;
         $user->l_name=$request->lname;
         $user->gender_id=$request->gender_id;
@@ -37,6 +45,7 @@ class RegistrationController extends Controller
         $user->address=$request->address;
         $user->state=$request->state;
         $user->r_date=now();
+        
         if ($request->terms=="Yes") {
             $user->terms="Yes"; 
         }
@@ -57,7 +66,6 @@ class RegistrationController extends Controller
         }
         $user->status=$request->status;
         $user->email_verified_at=now();
-        $user->password=$request->password;
         $user->remember_tocken=$request->_token;
         $user->save();
         if ($user) {

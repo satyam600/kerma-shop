@@ -5,6 +5,7 @@ use App\Http\Controllers\KarmaController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\TableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,12 @@ Route::post('registration', [RegistrationController::class, 'registeredUser']);
 //login
 Route::get('login', [LoginController::class, 'login']);
 Route::post('login', [LoginController::class, 'loginUser']);
+//logout
+Route::get('logout', [LoginController::class, 'logout']);
 
 //home Page
 Route::get('index', [IndexController::class, 'index']);
+
+//table view
+Route::get('userTable', [TableController::class, 'userTable']);
+Route::post('searchUser', [TableController::class, 'userSearch']);
