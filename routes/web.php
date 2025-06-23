@@ -49,5 +49,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::get('index', [IndexController::class, 'index']);
 
 //table view
-Route::get('userTable', [TableController::class, 'userTable']);
-Route::post('searchUser', [TableController::class, 'userSearch']);
+Route::middleware('logincheck')->group(function() {
+    Route::get('userTable', [TableController::class, 'userTable']);
+    Route::post('searchUser', [TableController::class, 'userSearch']);
+});

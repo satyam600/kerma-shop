@@ -19,4 +19,7 @@ class Userr extends Authenticatable
     public function gender(){
         return $this->belongsTo(Gender::class);
     }
+    public function isAdmin(){
+        return $this->admin()->exists();
+    }
 }

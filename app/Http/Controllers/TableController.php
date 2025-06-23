@@ -8,7 +8,7 @@ use App\Models\Userr;
 class TableController extends Controller
 {
     function userTable() {
-        $user=Userr::all();
+        $user=Userr::paginate(10);
         return view('frontend.Table_view.userTable', ['users'=>$user]);
     }
     function userSearch(Request $request) {

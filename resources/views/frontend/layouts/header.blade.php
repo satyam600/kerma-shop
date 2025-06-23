@@ -85,18 +85,24 @@
 								</ul>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="{{url('contact')}}">Contact</a></li>
-							@if (session('user'))
-							<li class="nav-item"><a class="nav-link" href="{{url('logout')}}">Logout</a></li>
+							@if (Auth::check())
+							<li class="nav-item"><a class="nav-link" href="{{url('logout')}}">Logout ({{ Auth::user()->f_name }} {{ Auth::user()->l_name}})</a></li>
 							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Admin</a>
+								@auth
+                                	@if(Auth::user()->isAdmin())
+                                    @if(Auth::check())
+										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+								 	@endif
+								@endif
+								@endauth
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="{{url('userTable')}}">User Table</a></li>
 									<li class="nav-item"><a class="nav-link" href="{{url('tracking')}}">Admin Table</a></li>
 								</ul>
 							</li>
 							@else 
-							 <li class="nav-item"><a class="nav-link" href="{{url('login')}}">Login</a></li>
+								
+							 	<li class="nav-item"><a class="nav-link" href="{{url('login')}}">Login</a></li>
 							@endif
 						</ul>
 						<ul class="nav navbar-nav navbar-right">

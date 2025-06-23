@@ -21,7 +21,9 @@ class LoginController extends Controller
     function loginUser(Request $request) {
         $credentials=$request->only('user_name', 'password'); //$credentials=['username'=>'current_input_in request', 'password'=>'current_iput_in request]
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('index');
+            $request->session()->regenerate();
+            $user = Auth::user();
+            return redirect()->intended('index'); // Did the user try to access a protected page before logging in? If yes, redirect them back to that page. If no, redirect them to the default page 'dashboard'.
         }
         return back()->withErrors(['user_name' => 'Invalid credentials']);
 
@@ -53,8 +55,9 @@ class LoginController extends Controller
         // return redirect('index');
     }
 
-    function logout() {
-        session()->pull('user');
+    function logout(Request $request) {
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('login');
     }
 }
