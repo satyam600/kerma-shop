@@ -6,6 +6,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,21 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::get('index', [IndexController::class, 'index']);
 
 //table view
+//user Table
 Route::middleware('logincheck')->group(function() {
     Route::get('userTable', [TableController::class, 'userTable']);
     Route::post('searchUser', [TableController::class, 'userSearch']);
+});
+Route::middleware('logincheck')->prefix('brand')->group(function() {
+    //Brand Table
+    Route::get('/', [BrandController::class, 'index']);
+    Route::post('search', [BrandController::class, 'search']);
+    Route::get('del/{id}', [BrandController::class, 'destroy']);
+    Route::get('add', [BrandController::class, 'brandAdd']);
+    Route::post('store', [BrandController::class, 'store']);
+    Route::get('/{id}', [BrandController::class, 'show']);
+
+    Route::get('/{id}/edit', [BrandController::class, 'brandUpdatView']);
+    Route::patch('/{id}', [BrandController::class, 'update']);
+    //    
 });

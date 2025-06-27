@@ -97,7 +97,7 @@
 								@endauth
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="{{url('userTable')}}">User Table</a></li>
-									<li class="nav-item"><a class="nav-link" href="{{url('tracking')}}">Admin Table</a></li>
+									<li class="nav-item"><a class="nav-link" href="{{url('brand')}}">brand Table</a></li>
 								</ul>
 							</li>
 							@else 
